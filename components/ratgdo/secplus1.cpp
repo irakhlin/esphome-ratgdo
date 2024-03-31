@@ -71,7 +71,7 @@ namespace ratgdo {
                     ESP_LOG1(TAG, "Wall panel detected");
                     return;
                 }
-                if (millis() - this->wall_panel_emulation_start_ > 35000 && !this->wall_panel_starting_) {
+                if (millis() - this->wall_panel_emulation_start_ > 60000 && !this->wall_panel_starting_) {
                     ESP_LOG1(TAG, "No wall panel detected. Switching to emulation mode.");
                     this->wall_panel_emulation_state_ = WallPanelEmulationState::RUNNING;
                 }
