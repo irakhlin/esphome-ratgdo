@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - disable_emulation_v2
   pull_request:
   schedule:
     - cron: '0 4 * * 1'
@@ -169,7 +170,7 @@ jobs:
           path: output
 
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && ( github.ref == 'refs/heads/main' || github.ref == 'refs/heads/disable_emulation_v2' )
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     needs: consolidate
@@ -187,7 +188,7 @@ jobs:
         uses: actions/deploy-pages@v5.0.0
 
   release:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && ( github.ref == 'refs/heads/main' || github.ref == 'refs/heads/disable_emulation_v2' )
     name: Create GitHub Release
     runs-on: ubuntu-latest
     needs: deploy
