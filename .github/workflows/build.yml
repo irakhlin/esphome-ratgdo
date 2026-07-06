@@ -147,7 +147,7 @@ jobs:
 
 
   consolidate:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && ( github.ref == 'refs/heads/main' || github.ref == 'refs/heads/disable_emulation_v2' )
     name: Consolidate firmwares
     runs-on: ubuntu-latest
     needs: build
