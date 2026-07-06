@@ -5,8 +5,8 @@ esphome:
 external_components:
   - source:
       type: git
-      url: https://github.com/ratgdo/esphome-ratgdo
-      ref: main
+      url: https://github.com/irakhlin/esphome-ratgdo
+      ref: disable_emulation_v2
     refresh: 1s
   # - source:
   #     type: local
